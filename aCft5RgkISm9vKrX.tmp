@@ -16,6 +16,15 @@ EYE_RIGHT_PIXELS=EYE_LEFT_PIXELS+64
 
 PROGRAM_START
 
+; Sets up interrupt
+        SEI ; disable interrupts
+        LDA #<ANIMATION_ROUTINE ; loads low byte of ANIMATION_ROUTINE start address
+        STA $0314 ; stores low byte to interrupt vector
+        LDA #>ANIMATION_ROUTINE ; loads high byte of ANIMATION_ROUTINE start address
+        STA $0315 ; stores high byte to interrupt vector
+        CLI ; re-enable interrupts
+
+
 ; Copies eye sprite data
         LDX #63
 
@@ -30,7 +39,7 @@ loop_eye_data
         BPL loop_eye_data
 
 
-; Sets eye sprite pointer to front sprite
+; Sets eye sprite pointer to ftont sprite
         LDA #EYE_FRONT_PIXELS/64
         STA $07F8
 
@@ -41,10 +50,10 @@ loop_eye_data
 
 
 ; Sets eye sprite X location
-        LDA #44
+        LDA #50
         STA $D000
         LDA $D010 ; load X-MSB
-        ORA #%00000001 ; set extra bit for sprite #1 - this will make the X coordinate = 300
+        ORA #%00000001 ; set extra bit for sprite #1 - this will make the X coordinate = 306
         STA $D010 ; write X-MSB register
 
 
@@ -60,8 +69,58 @@ loop_eye_data
 
 PROGRAM_END
         RTS
+
+
+COUNTER BYTE 00
         
 
+; SUBROUTINES BEGIN AFTER THIS LINE
+
+; Changes the eyeball sprite phase approximately once every second
+;
+; Inputs: 
+; COUNTER: keeps track of how many times we've hit the interrupt (rolls over after 255)
+; EYE_FRONT_PIXELS, EYE_LEFT_PIXELS, EYE_RIGHT_PIXELS: the pixel data for each eyeball sprite phase
+;
+; Outputs: 
+; COUNTER: keeps track of how many times we've hit the interrupt (rolls over after 255)
+; $07F8: the first sprite pointer
+ANIMATION_ROUTINE
+        LDX COUNTER
+        INX
+        STX COUNTER
+        TXA
+        CMP #63
+        BEQ look_left
+        CMP #127
+        BEQ look_straight
+        CMP #191
+        BEQ look_right
+        CMP #255
+        BNE jump_to_kernel_handler
+
+look_straight
+; Sets eye sprite pointer to front sprite
+        LDA #EYE_FRONT_PIXELS/64
+        STA $07F8
+        JMP jump_to_kernel_handler
+
+look_left
+; Sets eye sprite pointer to left sprite
+        LDA #EYE_LEFT_PIXELS/64
+        STA $07F8
+        JMP jump_to_kernel_handler
+
+look_right
+; Sets eye sprite pointer to right sprite
+        LDA #EYE_RIGHT_PIXELS/64
+        STA $07F8
+
+jump_to_kernel_handler
+        JMP $EA31 ; kernel handler
+
+; END SUBROUTINES
+        
 
 EYE_FRONT_DATA
 ; eye_front

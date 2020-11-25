@@ -1,0 +1,11 @@
+;labels
+al $0900 .COUNTER
+al $0901 .PROGRAM_START
+al $090F .loop_eye_data
+al $0945 .PROGRAM_END
+al $0946 .ANIMATION_ROUTINE
+al $0950 .EYE_FRONT_DATA
+al $0990 .EYE_LEFT_DATA
+al $09D0 .EYE_RIGHT_DATA
+;breakpoints
+

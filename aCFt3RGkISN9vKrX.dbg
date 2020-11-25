@@ -10,28 +10,55 @@
         </Label>
         <Label>
             <LabelText>loop_eye_data</LabelText>
-            <LabelValue>2306</LabelValue>
+            <LabelValue>2318</LabelValue>
         </Label>
         <Label>
             <LabelText>PROGRAM_END</LabelText>
-            <LabelValue>2360</LabelValue>
+            <LabelValue>2372</LabelValue>
+        </Label>
+        <Label>
+            <LabelText>COUNTER</LabelText>
+            <LabelValue>2373</LabelValue>
+        </Label>
+        <Label>
+            <LabelText>ANIMATION_ROUTINE</LabelText>
+            <LabelValue>2374</LabelValue>
+        </Label>
+        <Label>
+            <LabelText>look_straight</LabelText>
+            <LabelValue>2398</LabelValue>
+        </Label>
+        <Label>
+            <LabelText>look_left</LabelText>
+            <LabelValue>2406</LabelValue>
+        </Label>
+        <Label>
+            <LabelText>look_right</LabelText>
+            <LabelValue>2414</LabelValue>
+        </Label>
+        <Label>
+            <LabelText>jump_to_kernel_handler</LabelText>
+            <LabelValue>2419</LabelValue>
         </Label>
         <Label>
             <LabelText>EYE_FRONT_DATA</LabelText>
-            <LabelValue>2361</LabelValue>
+            <LabelValue>2422</LabelValue>
         </Label>
         <Label>
             <LabelText>EYE_LEFT_DATA</LabelText>
-            <LabelValue>2425</LabelValue>
+            <LabelValue>2486</LabelValue>
         </Label>
         <Label>
             <LabelText>EYE_RIGHT_DATA</LabelText>
-            <LabelValue>2489</LabelValue>
+            <LabelValue>2550</LabelValue>
         </Label>
     </Labels>
     <DebuggerStartAddress>-1</DebuggerStartAddress>
     <WatchList />
-    <Breakpoints />
+    <Breakpoints>
+        <BreakpointLine>2374</BreakpointLine>
+        <BreakpointDetails>True;0;0;0;2374;False;0;False;0</BreakpointDetails>
+    </Breakpoints>
     <LONGAITransitions />
-    <Binary>DggKAJ4gKDIzMDQpAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoj+9OQmdgC69eQmdwC69uQmdAC/KEOupuo34B6kBjSfQqSyNANCtENAJAY0Q0Kk8jQHQqQGNFdBgAH4AA4HADH4wE//IL//0L//0X//6X8P6X4H6vwD9vwD9vwD9X4H6X8P6X//6L//0L//0E//IDH4wA4HAAH4AAAB+AAOBwAx+MBP/yC//9C//9F//+lx/+lg/+rg//bg//bg//Vg/+lx/+l//+i//9C//9BP/yAx+MAOBwAB+AAAAfgADgcAMfjAT/8gv//Qv//Rf//pf/jpf/Bq//B2//B2//B1f/Bpf/jpf//ov//Qv//QT/8gMfjADgcAAfgAA</Binary>
+    <Binary>DggKAJ4gKDIzMDQpAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeKlGjRQDqQmNFQNYoj+9dgmdgC69tgmdwC699gmdAC/KEOupuo34B6kBjSfQqTKNANCtENAJAY0Q0Kk8jQHQqQGNFdBgAK5FCeiORQmKyT/wFMl/8AjJv/AUyf/QFam6jfgHTHMJqbuN+AdMcwmpvI34B0wx6gB+AAOBwAx+MBP/yC//9C//9F//+l/D+l+B+r8A/b8A/b8A/V+B+l/D+l//+i//9C//9BP/yAx+MAOBwAB+AAAAfgADgcAMfjAT/8gv//Qv//Rf//pcf/pYP/q4P/24P/24P/1YP/pcf/pf//ov//Qv//QT/8gMfjADgcAAfgAAAH4AA4HADH4wE//IL//0L//0X//6X/46X/wav/wdv/wdv/wdX/waX/46X//6L//0L//0E//IDH4wA4HAAH4AAA==</Binary>
 </DebugInfo>

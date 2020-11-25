@@ -14,136 +14,201 @@
 00014  0900             
 00015  0900             PROGRAM_START 
 00016  0900             
-00017  0900             ; COPIES EYE SPRITE DATA
-00018  0900  A2 3F                 LDX #63
-00019  0902             
-00020  0902             LOOP_EYE_DATA 
-00021  0902  BD 39 09              LDA EYE_FRONT_DATA,X
-00022  0905  9D 80 2E              STA EYE_FRONT_PIXELS,X
-00023  0908  BD 79 09              LDA EYE_LEFT_DATA,X
-00024  090B  9D C0 2E              STA EYE_LEFT_PIXELS,X
-00025  090E  BD B9 09              LDA EYE_RIGHT_DATA,X
-00026  0911  9D 00 2F              STA EYE_RIGHT_PIXELS,X
-00027  0914  CA                    DEX
-00028  0915  10 EB                 BPL LOOP_EYE_DATA
-00029  0917             
-00030  0917             
-00031  0917             ; SETS EYE SPRITE POINTER TO FRONT SPRITE
-00032  0917  A9 BA                 LDA #EYE_FRONT_PIXELS/64
-00033  0919  8D F8 07              STA $07F8
-00034  091C             
-00035  091C             
-00036  091C             ; SETS EYE SPRITE COLOR
-00037  091C  A9 01                 LDA #$01 ; WHITE
-00038  091E  8D 27 D0              STA $D027
-00039  0921             
-00040  0921             
-00041  0921             ; SETS EYE SPRITE X LOCATION
-00042  0921  A9 2C                 LDA #44
-00043  0923  8D 00 D0              STA $D000
-00044  0926  AD 10 D0              LDA $D010 ; LOAD X-MSB
-00045  0929  09 01                 ORA #%00000001 ; SET EXTRA BIT FOR SPRITE #1 - THIS WILL MAKE THE X COORDINATE = 300
-00046  092B  8D 10 D0              STA $D010 ; WRITE X-MSB REGISTER
-00047  092E             
-00048  092E             
-00049  092E             ; SETS EYE SPRITE Y LOCATION
-00050  092E  A9 3C                 LDA #60
-00051  0930  8D 01 D0              STA $D001
-00052  0933             
-00053  0933             
-00054  0933             ; ENABLES EYE SPRITE
-00055  0933  A9 01                 LDA #%00000001
-00056  0935  8D 15 D0              STA $D015
-00057  0938             
-00058  0938             
-00059  0938             PROGRAM_END 
-00060  0938  60                    RTS
-00061  0939                        
-00062  0939             
-00063  0939             
-00064  0939             EYE_FRONT_DATA 
-00065  0939             ; EYE_FRONT
-00066  0939  00 7E 00              BYTE $00,$7E,$00
-00067  093C  03 81 C0              BYTE $03,$81,$C0
-00068  093F  0C 7E 30              BYTE $0C,$7E,$30
-00069  0942  13 FF C8              BYTE $13,$FF,$C8
-00070  0945  2F FF F4              BYTE $2F,$FF,$F4
-00071  0948  2F FF F4              BYTE $2F,$FF,$F4
-00072  094B  5F FF FA              BYTE $5F,$FF,$FA
-00073  094E  5F C3 FA              BYTE $5F,$C3,$FA
-00074  0951  5F 81 FA              BYTE $5F,$81,$FA
-00075  0954  BF 00 FD              BYTE $BF,$00,$FD
-00076  0957  BF 00 FD              BYTE $BF,$00,$FD
-00077  095A  BF 00 FD              BYTE $BF,$00,$FD
-00078  095D  5F 81 FA              BYTE $5F,$81,$FA
-00079  0960  5F C3 FA              BYTE $5F,$C3,$FA
-00080  0963  5F FF FA              BYTE $5F,$FF,$FA
-00081  0966  2F FF F4              BYTE $2F,$FF,$F4
-00082  0969  2F FF F4              BYTE $2F,$FF,$F4
-00083  096C  13 FF C8              BYTE $13,$FF,$C8
-00084  096F  0C 7E 30              BYTE $0C,$7E,$30
-00085  0972  03 81 C0              BYTE $03,$81,$C0
-00086  0975  00 7E 00              BYTE $00,$7E,$00
-00087  0978  00                    BYTE $00
-00088  0979             
-00089  0979             EYE_LEFT_DATA 
-00090  0979             ; EYE_LEFT
-00091  0979  00 7E 00              BYTE $00,$7E,$00
-00092  097C  03 81 C0              BYTE $03,$81,$C0
-00093  097F  0C 7E 30              BYTE $0C,$7E,$30
-00094  0982  13 FF C8              BYTE $13,$FF,$C8
-00095  0985  2F FF F4              BYTE $2F,$FF,$F4
-00096  0988  2F FF F4              BYTE $2F,$FF,$F4
-00097  098B  5F FF FA              BYTE $5F,$FF,$FA
-00098  098E  5C 7F FA              BYTE $5C,$7F,$FA
-00099  0991  58 3F FA              BYTE $58,$3F,$FA
-00100  0994  B8 3F FD              BYTE $B8,$3F,$FD
-00101  0997  B8 3F FD              BYTE $B8,$3F,$FD
-00102  099A  B8 3F FD              BYTE $B8,$3F,$FD
-00103  099D  58 3F FA              BYTE $58,$3F,$FA
-00104  09A0  5C 7F FA              BYTE $5C,$7F,$FA
-00105  09A3  5F FF FA              BYTE $5F,$FF,$FA
-00106  09A6  2F FF F4              BYTE $2F,$FF,$F4
-00107  09A9  2F FF F4              BYTE $2F,$FF,$F4
-00108  09AC  13 FF C8              BYTE $13,$FF,$C8
-00109  09AF  0C 7E 30              BYTE $0C,$7E,$30
-00110  09B2  03 81 C0              BYTE $03,$81,$C0
-00111  09B5  00 7E 00              BYTE $00,$7E,$00
-00112  09B8  00                    BYTE $00
-00113  09B9             
-00114  09B9             EYE_RIGHT_DATA 
-00115  09B9             ; EYE RIGHT
-00116  09B9  00 7E 00              BYTE $00,$7E,$00
-00117  09BC  03 81 C0              BYTE $03,$81,$C0
-00118  09BF  0C 7E 30              BYTE $0C,$7E,$30
-00119  09C2  13 FF C8              BYTE $13,$FF,$C8
-00120  09C5  2F FF F4              BYTE $2F,$FF,$F4
-00121  09C8  2F FF F4              BYTE $2F,$FF,$F4
-00122  09CB  5F FF FA              BYTE $5F,$FF,$FA
-00123  09CE  5F FE 3A              BYTE $5F,$FE,$3A
-00124  09D1  5F FC 1A              BYTE $5F,$FC,$1A
-00125  09D4  BF FC 1D              BYTE $BF,$FC,$1D
-00126  09D7  BF FC 1D              BYTE $BF,$FC,$1D
-00127  09DA  BF FC 1D              BYTE $BF,$FC,$1D
-00128  09DD  5F FC 1A              BYTE $5F,$FC,$1A
-00129  09E0  5F FE 3A              BYTE $5F,$FE,$3A
-00130  09E3  5F FF FA              BYTE $5F,$FF,$FA
-00131  09E6  2F FF F4              BYTE $2F,$FF,$F4
-00132  09E9  2F FF F4              BYTE $2F,$FF,$F4
-00133  09EC  13 FF C8              BYTE $13,$FF,$C8
-00134  09EF  0C 7E 30              BYTE $0C,$7E,$30
-00135  09F2  03 81 C0              BYTE $03,$81,$C0
-00136  09F5  00 7E 00              BYTE $00,$7E,$00
-00137  09F8  00                    BYTE $00
-00138  09F9             
-00139  09F9             
+00017  0900             ; SETS UP INTERRUPT
+00018  0900  78                    SEI ; DISABLE INTERRUPTS
+00019  0901  A9 46                 LDA #<ANIMATION_ROUTINE ; LOADS LOW BYTE OF ANIMATION_ROUTINE START ADDRESS
+00020  0903  8D 14 03              STA $0314 ; STORES LOW BYTE TO INTERRUPT VECTOR
+00021  0906  A9 09                 LDA #>ANIMATION_ROUTINE ; LOADS HIGH BYTE OF ANIMATION_ROUTINE START ADDRESS
+00022  0908  8D 15 03              STA $0315 ; STORES HIGH BYTE TO INTERRUPT VECTOR
+00023  090B  58                    CLI ; RE-ENABLE INTERRUPTS
+00024  090C             
+00025  090C             
+00026  090C             ; COPIES EYE SPRITE DATA
+00027  090C  A2 3F                 LDX #63
+00028  090E             
+00029  090E             LOOP_EYE_DATA 
+00030  090E  BD 76 09              LDA EYE_FRONT_DATA,X
+00031  0911  9D 80 2E              STA EYE_FRONT_PIXELS,X
+00032  0914  BD B6 09              LDA EYE_LEFT_DATA,X
+00033  0917  9D C0 2E              STA EYE_LEFT_PIXELS,X
+00034  091A  BD F6 09              LDA EYE_RIGHT_DATA,X
+00035  091D  9D 00 2F              STA EYE_RIGHT_PIXELS,X
+00036  0920  CA                    DEX
+00037  0921  10 EB                 BPL LOOP_EYE_DATA
+00038  0923             
+00039  0923             
+00040  0923             ; SETS EYE SPRITE POINTER TO FTONT SPRITE
+00041  0923  A9 BA                 LDA #EYE_FRONT_PIXELS/64
+00042  0925  8D F8 07              STA $07F8
+00043  0928             
+00044  0928             
+00045  0928             ; SETS EYE SPRITE COLOR
+00046  0928  A9 01                 LDA #$01 ; WHITE
+00047  092A  8D 27 D0              STA $D027
+00048  092D             
+00049  092D             
+00050  092D             ; SETS EYE SPRITE X LOCATION
+00051  092D  A9 32                 LDA #50
+00052  092F  8D 00 D0              STA $D000
+00053  0932  AD 10 D0              LDA $D010 ; LOAD X-MSB
+00054  0935  09 01                 ORA #%00000001 ; SET EXTRA BIT FOR SPRITE #1 - THIS WILL MAKE THE X COORDINATE = 306
+00055  0937  8D 10 D0              STA $D010 ; WRITE X-MSB REGISTER
+00056  093A             
+00057  093A             
+00058  093A             ; SETS EYE SPRITE Y LOCATION
+00059  093A  A9 3C                 LDA #60
+00060  093C  8D 01 D0              STA $D001
+00061  093F             
+00062  093F             
+00063  093F             ; ENABLES EYE SPRITE
+00064  093F  A9 01                 LDA #%00000001
+00065  0941  8D 15 D0              STA $D015
+00066  0944             
+00067  0944             
+00068  0944             PROGRAM_END 
+00069  0944  60                    RTS
+00070  0945             
+00071  0945             
+00072  0945  00         COUNTER    BYTE 00
+00073  0946                        
+00074  0946             
+00075  0946             ; SUBROUTINES BEGIN AFTER THIS LINE
+00076  0946             
+00077  0946             ; CHANGES THE EYEBALL SPRITE PHASE APPROXIMATELY ONCE EVERY SECOND
+00078  0946             ;
+00079  0946             ; INPUTS:
+00080  0946             ; COUNTER: KEEPS TRACK OF HOW MANY TIMES WE'VE HIT THE INTERRUPT (ROLLS OVER AFTER 255)
+00081  0946             ; EYE_FRONT_PIXELS, EYE_LEFT_PIXELS, EYE_RIGHT_PIXELS: THE PIXEL DATA FOR EACH EYEBALL SPRITE PHASE
+00082  0946             ;
+00083  0946             ; OUTPUTS:
+00084  0946             ; COUNTER: KEEPS TRACK OF HOW MANY TIMES WE'VE HIT THE INTERRUPT (ROLLS OVER AFTER 255)
+00085  0946             ; $07F8: THE FIRST SPRITE POINTER
+00086  0946             ANIMATION_ROUTINE 
+00087  0946  AE 45 09              LDX COUNTER
+00088  0949  E8                    INX
+00089  094A  8E 45 09              STX COUNTER
+00090  094D  8A                    TXA
+00091  094E  C9 3F                 CMP #63
+00092  0950  F0 14                 BEQ LOOK_LEFT
+00093  0952  C9 7F                 CMP #127
+00094  0954  F0 08                 BEQ LOOK_STRAIGHT
+00095  0956  C9 BF                 CMP #191
+00096  0958  F0 14                 BEQ LOOK_RIGHT
+00097  095A  C9 FF                 CMP #255
+00098  095C  D0 15                 BNE JUMP_TO_KERNEL_HANDLER
+00099  095E             
+00100  095E             LOOK_STRAIGHT 
+00101  095E             ; SETS EYE SPRITE POINTER TO FRONT SPRITE
+00102  095E  A9 BA                 LDA #EYE_FRONT_PIXELS/64
+00103  0960  8D F8 07              STA $07F8
+00104  0963  4C 73 09              JMP JUMP_TO_KERNEL_HANDLER
+00105  0966             
+00106  0966             LOOK_LEFT
+00107  0966             ; SETS EYE SPRITE POINTER TO LEFT SPRITE
+00108  0966  A9 BB                 LDA #EYE_LEFT_PIXELS/64
+00109  0968  8D F8 07              STA $07F8
+00110  096B  4C 73 09              JMP JUMP_TO_KERNEL_HANDLER
+00111  096E             
+00112  096E             LOOK_RIGHT 
+00113  096E             ; SETS EYE SPRITE POINTER TO RIGHT SPRITE
+00114  096E  A9 BC                 LDA #EYE_RIGHT_PIXELS/64
+00115  0970  8D F8 07              STA $07F8
+00116  0973             
+00117  0973             JUMP_TO_KERNEL_HANDLER 
+00118  0973  4C 31 EA              JMP $EA31 ; KERNEL HANDLER
+00119  0976             
+00120  0976             ; END SUBROUTINES
+00121  0976                        
+00122  0976             
+00123  0976             EYE_FRONT_DATA 
+00124  0976             ; EYE_FRONT
+00125  0976  00 7E 00              BYTE $00,$7E,$00
+00126  0979  03 81 C0              BYTE $03,$81,$C0
+00127  097C  0C 7E 30              BYTE $0C,$7E,$30
+00128  097F  13 FF C8              BYTE $13,$FF,$C8
+00129  0982  2F FF F4              BYTE $2F,$FF,$F4
+00130  0985  2F FF F4              BYTE $2F,$FF,$F4
+00131  0988  5F FF FA              BYTE $5F,$FF,$FA
+00132  098B  5F C3 FA              BYTE $5F,$C3,$FA
+00133  098E  5F 81 FA              BYTE $5F,$81,$FA
+00134  0991  BF 00 FD              BYTE $BF,$00,$FD
+00135  0994  BF 00 FD              BYTE $BF,$00,$FD
+00136  0997  BF 00 FD              BYTE $BF,$00,$FD
+00137  099A  5F 81 FA              BYTE $5F,$81,$FA
+00138  099D  5F C3 FA              BYTE $5F,$C3,$FA
+00139  09A0  5F FF FA              BYTE $5F,$FF,$FA
+00140  09A3  2F FF F4              BYTE $2F,$FF,$F4
+00141  09A6  2F FF F4              BYTE $2F,$FF,$F4
+00142  09A9  13 FF C8              BYTE $13,$FF,$C8
+00143  09AC  0C 7E 30              BYTE $0C,$7E,$30
+00144  09AF  03 81 C0              BYTE $03,$81,$C0
+00145  09B2  00 7E 00              BYTE $00,$7E,$00
+00146  09B5  00                    BYTE $00
+00147  09B6             
+00148  09B6             EYE_LEFT_DATA 
+00149  09B6             ; EYE_LEFT
+00150  09B6  00 7E 00              BYTE $00,$7E,$00
+00151  09B9  03 81 C0              BYTE $03,$81,$C0
+00152  09BC  0C 7E 30              BYTE $0C,$7E,$30
+00153  09BF  13 FF C8              BYTE $13,$FF,$C8
+00154  09C2  2F FF F4              BYTE $2F,$FF,$F4
+00155  09C5  2F FF F4              BYTE $2F,$FF,$F4
+00156  09C8  5F FF FA              BYTE $5F,$FF,$FA
+00157  09CB  5C 7F FA              BYTE $5C,$7F,$FA
+00158  09CE  58 3F FA              BYTE $58,$3F,$FA
+00159  09D1  B8 3F FD              BYTE $B8,$3F,$FD
+00160  09D4  B8 3F FD              BYTE $B8,$3F,$FD
+00161  09D7  B8 3F FD              BYTE $B8,$3F,$FD
+00162  09DA  58 3F FA              BYTE $58,$3F,$FA
+00163  09DD  5C 7F FA              BYTE $5C,$7F,$FA
+00164  09E0  5F FF FA              BYTE $5F,$FF,$FA
+00165  09E3  2F FF F4              BYTE $2F,$FF,$F4
+00166  09E6  2F FF F4              BYTE $2F,$FF,$F4
+00167  09E9  13 FF C8              BYTE $13,$FF,$C8
+00168  09EC  0C 7E 30              BYTE $0C,$7E,$30
+00169  09EF  03 81 C0              BYTE $03,$81,$C0
+00170  09F2  00 7E 00              BYTE $00,$7E,$00
+00171  09F5  00                    BYTE $00
+00172  09F6             
+00173  09F6             EYE_RIGHT_DATA 
+00174  09F6             ; EYE RIGHT
+00175  09F6  00 7E 00              BYTE $00,$7E,$00
+00176  09F9  03 81 C0              BYTE $03,$81,$C0
+00177  09FC  0C 7E 30              BYTE $0C,$7E,$30
+00178  09FF  13 FF C8              BYTE $13,$FF,$C8
+00179  0A02  2F FF F4              BYTE $2F,$FF,$F4
+00180  0A05  2F FF F4              BYTE $2F,$FF,$F4
+00181  0A08  5F FF FA              BYTE $5F,$FF,$FA
+00182  0A0B  5F FE 3A              BYTE $5F,$FE,$3A
+00183  0A0E  5F FC 1A              BYTE $5F,$FC,$1A
+00184  0A11  BF FC 1D              BYTE $BF,$FC,$1D
+00185  0A14  BF FC 1D              BYTE $BF,$FC,$1D
+00186  0A17  BF FC 1D              BYTE $BF,$FC,$1D
+00187  0A1A  5F FC 1A              BYTE $5F,$FC,$1A
+00188  0A1D  5F FE 3A              BYTE $5F,$FE,$3A
+00189  0A20  5F FF FA              BYTE $5F,$FF,$FA
+00190  0A23  2F FF F4              BYTE $2F,$FF,$F4
+00191  0A26  2F FF F4              BYTE $2F,$FF,$F4
+00192  0A29  13 FF C8              BYTE $13,$FF,$C8
+00193  0A2C  0C 7E 30              BYTE $0C,$7E,$30
+00194  0A2F  03 81 C0              BYTE $03,$81,$C0
+00195  0A32  00 7E 00              BYTE $00,$7E,$00
+00196  0A35  00                    BYTE $00
+00197  0A36             
+00198  0A36             
 
-******* 6 Label(s) *******
-EYE_FRONT_DATA = $0939 
-EYE_LEFT_DATA = $0979 
-EYE_RIGHT_DATA = $09B9 
-loop_eye_data = $0902 
-PROGRAM_END = $0938 
+******* 12 Label(s) *******
+ANIMATION_ROUTINE = $0946 
+COUNTER = $0945 
+EYE_FRONT_DATA = $0976 
+EYE_LEFT_DATA = $09B6 
+EYE_RIGHT_DATA = $09F6 
+jump_to_kernel_handler = $0973 
+look_left = $0966 
+look_right = $096E 
+look_straight = $095E 
+loop_eye_data = $090E 
+PROGRAM_END = $0944 
 PROGRAM_START = $0900 
 
 ******* 2 Unused label(s) *******

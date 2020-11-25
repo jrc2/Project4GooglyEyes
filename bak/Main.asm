@@ -6,15 +6,81 @@
 
 
 *=$0900
+
+EYE_FRONT_PIXELS=$2E80
+EYE_LEFT_PIXELS=EYE_FRONT_PIXELS+64
+EYE_RIGHT_PIXELS=EYE_LEFT_PIXELS+64
+COUNTER BYTE 00
+
+
 PROGRAM_START
 
-        
+; Sets up interrupt
+        SEI ; disable interrupts
+        LDA #<ANIMATION_ROUTINE ; loads low byte of ANIMATION_ROUTINE start address
+        STA $0314 ; stores low byte to interrupt vector
+        LDA #>ANIMATION_ROUTINE ; loads high byte of ANIMATION_ROUTINE start address
+        STA $0315 ; stores high byte to interrupt vector
+        CLI ; re-enable interrupts
+
+
+; Copies eye sprite data
+        LDX #63
+
+loop_eye_data
+        LDA EYE_FRONT_DATA,X
+        STA EYE_FRONT_PIXELS,X
+        LDA EYE_LEFT_DATA,X
+        STA EYE_LEFT_PIXELS,X
+        LDA EYE_RIGHT_DATA,X
+        STA EYE_RIGHT_PIXELS,X
+        DEX
+        BPL loop_eye_data
+
+
+; Sets eye sprite pointer to front sprite
+        LDA #EYE_FRONT_PIXELS/64
+        STA $07F8
+
+
+; Sets eye sprite color
+        LDA #$01 ; white
+        STA $D027
+
+
+; Sets eye sprite X location
+        LDA #50
+        STA $D000
+        LDA $D010 ; load X-MSB
+        ORA #%00000001 ; set extra bit for sprite #1 - this will make the X coordinate = 306
+        STA $D010 ; write X-MSB register
+
+
+; Sets eye sprite Y location
+        LDA #60
+        STA $D001
+
+
+; Enables eye sprite
+        LDA #%00000001
+        STA $D015
+
 
 PROGRAM_END
-        rts
+        RTS
         
 
 
+; SUBROUTINES BEGIN AFTER THIS LINE
+
+ANIMATION_ROUTINE
+        LDX COUNTER
+        INX
+        STX COUNTER
+        JMP $EA31 ; kernel handler
+
+; END SUBROUTINES
+        
 
 EYE_FRONT_DATA
 ; eye_front
