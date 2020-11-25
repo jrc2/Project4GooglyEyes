@@ -1,0 +1,9 @@
+;labels
+al $0900 .PROGRAM_START
+al $0902 .loop_eye_data
+al $0938 .PROGRAM_END
+al $0939 .EYE_FRONT_DATA
+al $0979 .EYE_LEFT_DATA
+al $09B9 .EYE_RIGHT_DATA
+;breakpoints
+

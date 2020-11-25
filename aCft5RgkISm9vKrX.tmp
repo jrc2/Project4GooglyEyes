@@ -1,3 +1,5 @@
+##{0:0:0:Main.prg}C:\Users\johnc\OneDrive\Documents\School\SystemArc\Project4GooglyEyes_JohnChittam\Main.asm
+
 ; 10 SYS (2304)
 
 *=$0801
@@ -135,4 +137,5 @@ EYE_RIGHT_DATA
  BYTE $03,$81,$C0
  BYTE $00,$7E,$00
  BYTE $00
+
 
