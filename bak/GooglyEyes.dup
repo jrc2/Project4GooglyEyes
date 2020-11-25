@@ -1,11 +1,15 @@
 ;labels
-al $0900 .COUNTER
-al $0901 .PROGRAM_START
-al $090F .loop_eye_data
-al $0945 .PROGRAM_END
+al $0900 .PROGRAM_START
+al $090E .loop_eye_data
+al $0944 .PROGRAM_END
+al $0945 .COUNTER
 al $0946 .ANIMATION_ROUTINE
-al $0950 .EYE_FRONT_DATA
-al $0990 .EYE_LEFT_DATA
-al $09D0 .EYE_RIGHT_DATA
+al $095E .look_straight
+al $0966 .look_left
+al $096E .look_right
+al $0973 .jump_to_kernel_handler
+al $0976 .EYE_FRONT_DATA
+al $09B6 .EYE_LEFT_DATA
+al $09F6 .EYE_RIGHT_DATA
 ;breakpoints
 

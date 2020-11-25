@@ -72,8 +72,6 @@ PROGRAM_END
 COUNTER BYTE 00
         
 
-; SUBROUTINES BEGIN AFTER THIS LINE
-
 ; Changes the eyeball sprite phase approximately once every second
 ;
 ; Inputs: 
@@ -117,7 +115,6 @@ look_right
 jump_to_kernel_handler
         JMP $EA31 ; kernel handler
 
-; END SUBROUTINES
         
 
 EYE_FRONT_DATA

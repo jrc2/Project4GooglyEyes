@@ -18,7 +18,7 @@
     <AutoLaunchName>GooglyEyes.prg</AutoLaunchName>
     <NoSingleFileBuild>False</NoSingleFileBuild>
     <CreatedWithVersion />
-    <HasGitRepo>False</HasGitRepo>
+    <HasGitRepo>True</HasGitRepo>
     <GitIgnoreList />
     <Cartridge>
         <CrtBuildingCartridge>False</CrtBuildingCartridge>
@@ -56,13 +56,9 @@
             <FileType>2</FileType>
             <IncludeInBuild>True</IncludeInBuild>
             <Regions />
-            <Breakpoints>
-                <Breakpoint>76</Breakpoint>
-                <BreakpointDetails>True;0;0;2;0;False;76;False;0</BreakpointDetails>
-                <Enabled>True</Enabled>
-            </Breakpoints>
+            <Breakpoints />
             <Bookmarks />
-            <Topmost>True</Topmost>
+            <Topmost>False</Topmost>
             <FileOpen>True</FileOpen>
         </SourceFile>
         <SourceFile>

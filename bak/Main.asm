@@ -10,7 +10,6 @@
 EYE_FRONT_PIXELS=$2E80
 EYE_LEFT_PIXELS=EYE_FRONT_PIXELS+64
 EYE_RIGHT_PIXELS=EYE_LEFT_PIXELS+64
-COUNTER BYTE 00
 
 
 PROGRAM_START
@@ -38,7 +37,7 @@ loop_eye_data
         BPL loop_eye_data
 
 
-; Sets eye sprite pointer to front sprite
+; Sets eye sprite pointer to ftont sprite
         LDA #EYE_FRONT_PIXELS/64
         STA $07F8
 
@@ -68,15 +67,54 @@ loop_eye_data
 
 PROGRAM_END
         RTS
-        
 
+
+COUNTER BYTE 00
+        
 
 ; SUBROUTINES BEGIN AFTER THIS LINE
 
+; Changes the eyeball sprite phase approximately once every second
+;
+; Inputs: 
+; COUNTER: keeps track of how many times we've hit the interrupt (rolls over after 255)
+; EYE_FRONT_PIXELS, EYE_LEFT_PIXELS, EYE_RIGHT_PIXELS: the pixel data for each eyeball sprite phase
+;
+; Outputs: 
+; COUNTER: keeps track of how many times we've hit the interrupt (rolls over after 255)
+; $07F8: the first sprite pointer
 ANIMATION_ROUTINE
         LDX COUNTER
         INX
         STX COUNTER
+        TXA
+        CMP #63
+        BEQ look_left
+        CMP #127
+        BEQ look_straight
+        CMP #191
+        BEQ look_right
+        CMP #255
+        BNE jump_to_kernel_handler
+
+look_straight
+; Sets eye sprite pointer to front sprite
+        LDA #EYE_FRONT_PIXELS/64
+        STA $07F8
+        JMP jump_to_kernel_handler
+
+look_left
+; Sets eye sprite pointer to left sprite
+        LDA #EYE_LEFT_PIXELS/64
+        STA $07F8
+        JMP jump_to_kernel_handler
+
+look_right
+; Sets eye sprite pointer to right sprite
+        LDA #EYE_RIGHT_PIXELS/64
+        STA $07F8
+
+jump_to_kernel_handler
         JMP $EA31 ; kernel handler
 
 ; END SUBROUTINES
