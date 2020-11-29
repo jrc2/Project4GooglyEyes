@@ -1,15 +1,23 @@
 ;labels
 al $0900 .PROGRAM_START
-al $090E .loop_eye_data
-al $0944 .PROGRAM_END
-al $0945 .COUNTER
-al $0946 .ANIMATION_ROUTINE
-al $095E .look_straight
-al $0966 .look_left
-al $096E .look_right
-al $0973 .jump_to_kernel_handler
-al $0976 .EYE_FRONT_DATA
-al $09B6 .EYE_LEFT_DATA
-al $09F6 .EYE_RIGHT_DATA
+al $0912 .PROGRAM_END
+al $0913 .COUNTER
+al $0914 .SET_UP_INTERRUPT
+al $0921 .COPY_EYE_SPRITE_DATA
+al $0923 .loop_eye_data
+al $0939 .MAKE_EYE_WHITE
+al $093F .SET_EYE_SPRITE_LOCATION
+al $094A .SET_EYE_X_SPRITE_LOCATION
+al $0956 .SET_EYE_Y_SPRITE_LOCATION
+al $095A .ENABLE_EYE_SPRITE
+al $0960 .ANIMATION_ROUTINE
+al $0978 .look_straight
+al $0980 .look_left
+al $0988 .look_right
+al $098D .jump_to_kernel_handler
+al $0991 .SET_EYE_SPRITE_POINTER_TO_FRONT
+al $0997 .EYE_FRONT_DATA
+al $09D7 .EYE_LEFT_DATA
+al $0A17 .EYE_RIGHT_DATA
 ;breakpoints
 

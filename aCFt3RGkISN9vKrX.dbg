@@ -9,53 +9,85 @@
             <LabelValue>2304</LabelValue>
         </Label>
         <Label>
-            <LabelText>loop_eye_data</LabelText>
-            <LabelValue>2318</LabelValue>
-        </Label>
-        <Label>
             <LabelText>PROGRAM_END</LabelText>
-            <LabelValue>2372</LabelValue>
+            <LabelValue>2322</LabelValue>
         </Label>
         <Label>
             <LabelText>COUNTER</LabelText>
-            <LabelValue>2373</LabelValue>
+            <LabelValue>2323</LabelValue>
+        </Label>
+        <Label>
+            <LabelText>SET_UP_INTERRUPT</LabelText>
+            <LabelValue>2324</LabelValue>
+        </Label>
+        <Label>
+            <LabelText>COPY_EYE_SPRITE_DATA</LabelText>
+            <LabelValue>2337</LabelValue>
+        </Label>
+        <Label>
+            <LabelText>loop_eye_data</LabelText>
+            <LabelValue>2339</LabelValue>
+        </Label>
+        <Label>
+            <LabelText>MAKE_EYE_WHITE</LabelText>
+            <LabelValue>2361</LabelValue>
+        </Label>
+        <Label>
+            <LabelText>SET_EYE_SPRITE_LOCATION</LabelText>
+            <LabelValue>2367</LabelValue>
+        </Label>
+        <Label>
+            <LabelText>SET_EYE_X_SPRITE_LOCATION</LabelText>
+            <LabelValue>2378</LabelValue>
+        </Label>
+        <Label>
+            <LabelText>SET_EYE_Y_SPRITE_LOCATION</LabelText>
+            <LabelValue>2390</LabelValue>
+        </Label>
+        <Label>
+            <LabelText>ENABLE_EYE_SPRITE</LabelText>
+            <LabelValue>2394</LabelValue>
         </Label>
         <Label>
             <LabelText>ANIMATION_ROUTINE</LabelText>
-            <LabelValue>2374</LabelValue>
+            <LabelValue>2400</LabelValue>
         </Label>
         <Label>
             <LabelText>look_straight</LabelText>
-            <LabelValue>2398</LabelValue>
+            <LabelValue>2424</LabelValue>
         </Label>
         <Label>
             <LabelText>look_left</LabelText>
-            <LabelValue>2406</LabelValue>
+            <LabelValue>2432</LabelValue>
         </Label>
         <Label>
             <LabelText>look_right</LabelText>
-            <LabelValue>2414</LabelValue>
+            <LabelValue>2440</LabelValue>
         </Label>
         <Label>
             <LabelText>jump_to_kernel_handler</LabelText>
-            <LabelValue>2419</LabelValue>
+            <LabelValue>2445</LabelValue>
+        </Label>
+        <Label>
+            <LabelText>SET_EYE_SPRITE_POINTER_TO_FRONT</LabelText>
+            <LabelValue>2449</LabelValue>
         </Label>
         <Label>
             <LabelText>EYE_FRONT_DATA</LabelText>
-            <LabelValue>2422</LabelValue>
+            <LabelValue>2455</LabelValue>
         </Label>
         <Label>
             <LabelText>EYE_LEFT_DATA</LabelText>
-            <LabelValue>2486</LabelValue>
+            <LabelValue>2519</LabelValue>
         </Label>
         <Label>
             <LabelText>EYE_RIGHT_DATA</LabelText>
-            <LabelValue>2550</LabelValue>
+            <LabelValue>2583</LabelValue>
         </Label>
     </Labels>
     <DebuggerStartAddress>-1</DebuggerStartAddress>
     <WatchList />
     <Breakpoints />
     <LONGAITransitions />
-    <Binary>DggKAJ4gKDIzMDQpAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeKlGjRQDqQmNFQNYoj+9dgmdgC69tgmdwC699gmdAC/KEOupuo34B6kBjSfQqTKNANCtENAJAY0Q0Kk8jQHQqQGNFdBgAK5FCeiORQmKyT/wFMl/8AjJv/AUyf/QFam6jfgHTHMJqbuN+AdMcwmpvI34B0wx6gB+AAOBwAx+MBP/yC//9C//9F//+l/D+l+B+r8A/b8A/b8A/V+B+l/D+l//+i//9C//9BP/yAx+MAOBwAB+AAAAfgADgcAMfjAT/8gv//Qv//Rf//pcf/pYP/q4P/24P/24P/1YP/pcf/pf//ov//Qv//QT/8gMfjADgcAAfgAAAH4AA4HADH4wE//IL//0L//0X//6X/46X/wav/wdv/wdv/wdX/waX/46X//6L//0L//0E//IDH4wA4HAAH4AAA==</Binary>
+    <Binary>DggKAJ4gKDIzMDQpAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBQJICEJIJEJIDkJID8JIFoJYAB4qWCNFAOpCY0VA1hgoj+9lwmdgC691wmdwC69FwqdAC/KEOtgqQGNJ9BgqTIgSgmpPCBWCWCNANCtENAJAY0Q0GCNAdBgqQGNFdBgrRMJZQGNEwnJP/AUyX/wCMm/8BTJ/9AVqbqN+AdMjQmpu434B0yNCam8jfgHTDHqYKm6jfgHYAB+AAOBwAx+MBP/yC//9C//9F//+l/D+l+B+r8A/b8A/b8A/V+B+l/D+l//+i//9C//9BP/yAx+MAOBwAB+AAAAfgADgcAMfjAT/8gv//Qv//Rf//pcf/pYP/q4P/24P/24P/1YP/pcf/pf//ov//Qv//QT/8gMfjADgcAAfgAAAH4AA4HADH4wE//IL//0L//0X//6X/46X/wav/wdv/wdv/wdX/waX/46X//6L//0L//0E//IDH4wA4HAAH4AAA==</Binary>
 </DebugInfo>
